@@ -736,14 +736,9 @@ textarea {
 .clients-item {
   margin-left: 31px;
 }
-/* .photo-team {
-  margin-bottom: 30px;
-} */
-/* .team-name {
-  margin-bottom: 10px;
-} */
 
 /* footer */
+
 .footer-general.container {
   display: flex;
 }
@@ -805,7 +800,6 @@ textarea {
   text-align: center;
   color: var(--white-text-color);
   margin-bottom: 20px;
-  width: 145px;
   height: 16px;
   font-family: Roboto;
   font-weight: bold;
@@ -815,6 +809,7 @@ textarea {
   text-transform: uppercase;
   padding: 0;
 }
+
 .footer-social-center {
   padding-right: 0px;
   padding-left: 0px;
@@ -854,18 +849,29 @@ textarea {
   flex-shrink: 0;
 }
 
+.footer-right-wrap {
+  display: flex;
+}
 .footer-right {
   display: flex;
   padding-left: 0;
   padding-right: 0;
   width: 100%;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin-left: 93px;
+}
+.footer-right-btn-wrap {
+  display: flex;
 }
 
 .btn-footer {
+  /* position: relative; */
   border-radius: 4px;
   min-width: 200px;
-  padding: 10px 32px;
+  height: 50px;
+  padding: 10px 28px;
   margin-right: auto;
   margin-left: auto;
   background-color: var(--accent-color);
@@ -876,8 +882,9 @@ textarea {
   font-size: 16px;
   line-height: 1.87;
   display: flex;
+  align-items: center;
+  flex-direction: row;
   letter-spacing: 0.06em;
-  display: inline-block;
   cursor: pointer;
   transition: background-color var(--timing-function) var(--transition-duration);
 }
@@ -885,6 +892,14 @@ textarea {
 .btn-footer:hover,
 .btn-footer:hover {
   background-color: var(--button-hover-color);
+}
+
+.footer-send-icon {
+  display: inline-block;
+  margin-left: 10px;
+  /* position: absolute; */
+  /* right: 28px; */
+  fill: var(--white-text-color);
 }
 
 .mail-footer-input {
@@ -895,16 +910,22 @@ textarea {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
   background-color: var(--backdraund-black);
+  margin-right: 12px;
+  cursor: pointer;
 }
 .mail-footer-input::placeholder {
   font-size: 16px;
   line-height: 1.25;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
   padding-left: 16px;
 }
+
+
+
+/* MODAL and Backdrop */
 
 .backdrop {
   position: fixed;
@@ -958,8 +979,15 @@ textarea {
   cursor: pointer;
 }
 
+.icon-close:hover {
+  fill: var(--accent-color);
+}
+.icon-close {
+  transition: fill var(--timing-function) var(--transition-duration);
+}
+
 .form {
-  width: 448px;
+  /* width: 448px; */
   margin-right: 0;
   margin-right: auto;
   margin-left: auto;
@@ -970,9 +998,7 @@ textarea {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  border-color: var(--accent-color);
-
-  /* outline: 1px solid tomato; */
+  border-color: solid 1px var(--accent-color);
 }
 /* .form-group input:hover, */
 .form-group input:focus {
@@ -987,6 +1013,7 @@ textarea {
   box-sizing: border-box;
   border-radius: 4px;
   min-height: 40px;
+  cursor: pointer;
 }
 .form-group label {
   margin-bottom: 4px;
@@ -994,6 +1021,7 @@ textarea {
   line-height: 1.16;
   letter-spacing: 0.01em;
   color: var(--secondary-text-color);
+  cursor: pointer;
 }
 
 .text-modal-title {
@@ -1013,6 +1041,7 @@ textarea {
   box-sizing: border-box;
   border-radius: 4px;
   min-height: 120px;
+  cursor: pointer;
 }
 .textarea:focus {
   border-color: var(--accent-color);
@@ -1034,20 +1063,71 @@ textarea {
   /* top: 11px;
   left: 12px; */
   left: 12px;
+  /* top: 50%;
+  transform: translateY(-50%); */
 }
 
 .form-input:focus ~ .icon-modal {
   fill: var(--accent-color);
 }
 
-.form-agreement {
-  /* display: flex; */
-}
 .agree-text {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  /* display: inline-flex; */
+}
+
+
+/* Checkbox first exsample */
+
+/* .agree-text::before {
+  content: '';
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--primary-text-color);
+  border-radius: 2px;
+  margin-right: 7px;
+}
+.agree-check:checked + .agree-text::before {
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(../images/check-second.svg);
+} */
+
+
+/* Checkbox second exsample */
+
+.agree-text span {
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--primary-text-color);
+  border-radius: 2px;
+  margin-right: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agree-icon {
+  fill: transparent;
+}
+
+.agree-check:checked + .agree-text span {
+  background-color: var(--accent-color);
+  border: none;
+  fill: var(--white-text-color);
+}
+
+.agree-check:checked + .agree-text .agree-icon {
+  fill: var(--white-text-color);
 }
 
 .agree-link {
@@ -1064,6 +1144,7 @@ textarea {
   padding: 10px 32px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 30px;
   background-color: var(--accent-color);
   color: var(--white-text-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -1072,8 +1153,8 @@ textarea {
   font-size: 16px;
   line-height: 1.87;
   display: flex;
+  justify-content: center;
   letter-spacing: 0.06em;
-  display: inline-block;
   cursor: pointer;
   transition: background-color var(--timing-function) var(--transition-duration);
 }
